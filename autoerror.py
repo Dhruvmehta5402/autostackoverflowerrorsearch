@@ -2,6 +2,8 @@ from subprocess import Popen, PIPE
 import requests
 import webbrowser
 
+FILE_TO_RUN = 'C:\\Users\\Dhruv\\stackoverauto\\test.py'
+
 def execute_return(cmd):
     args = cmd.split()
     proc = Popen(args, stdout=PIPE, stderr=PIPE)
@@ -28,7 +30,7 @@ def get_urls(json_dict):
         webbrowser.open(i)
 
 
-out, err = execute_return('python C:\\Users\\Dhruv\\stackoverauto\\test.py')
+out, err = execute_return(f'python {FILE_TO_RUN}')
 
 erro = err.decode("utf-8").strip().split('\r\n')[-1]
 print(erro)
